@@ -1,0 +1,26 @@
+@import "reset";
+@import "variables";
+@import "mixins";
+@import "html";
+@import "text";
+@import "grid";
+@import "blocks";
+@import "buttons";
+@import "forms";
+
+.body-wrap {
+	min-height: 80vh;
+}
+
+#encoded, #decoded {
+	width: 100%;
+	margin-bottom: $-m;
+}
+
+.col-md-6 h4 {
+	margin-top: $-s;
+}
+
+footer hr {
+	margin-bottom: 0;
+}

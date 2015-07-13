@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>URL Encode/Decode</title>
+  <link rel="stylesheet" href="dist/styles.css">
+  <link href='//fonts.googleapis.com/css?family=Roboto:400,300italic,300,100italic,100,400italic,500,500italic,700,900,700italic' rel='stylesheet' type='text/css'>
+</head>
+<body>
+
+  <div class="body-wrap">
+    <div class="container">
+      <h1>URL Encode &amp; Decode</h1>
+      <p class="text-muted">This site will encode text suitable to be used within URL parameters.</p>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="shaded primary padded">
+            <h4>Decoded URL</h4>
+            <textarea id="decoded" cols="30" placeholder="Enter your normal, decoded url here..." rows="10"></textarea>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="shaded secondary padded">
+            <h4>Encoded URL</h4>
+            <textarea id="encoded" cols="30" rows="10" placeholder="Enter your encoded url here..."></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="container">
+    <hr>
+    <div class="padded-vertical">
+      Created by <a href="http://danb.me">Dan Brown</a>
+    </div>
+  </footer>
+
+  <script>
+
+  (function() {
+    // Get Inputs
+    var decodedInput = document.getElementById('decoded');
+    var encodedInput = document.getElementById('encoded');
+
+    // Encode/Decode functions
+    function encodeString(string) {
+      var encoded = encodeURIComponent(string);
+      return encoded.replace(/\%20/g, '+');
+    }
+    function decodeString(string) {
+      return decodeURIComponent(string.replace(/\+/g, '%20'));
+    }
+
+    // Bind actions to inputs
+    decodedInput.oninput = function(e) {
+      encodedInput.value = encodeString(this.value);
+    };
+    encodedInput.oninput = function(e) {
+      decodedInput.value = decodeString(this.value);
+    };
+  })();
+  </script>
+
+
+</body>
+</html>
